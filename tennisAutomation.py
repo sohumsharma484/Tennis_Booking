@@ -15,6 +15,9 @@ class Tennis:
         PATH = "C:\Program Files (x86)\chromedriver.exe"
         self.driver = webdriver.Chrome(PATH)
         self.otherCourt = False
+        
+        self.username = ""
+        self.password = ""
     
         self.driver.get("https://canyoncreekhoa.tennisbookings.com/LoginX.aspx")
     
@@ -29,11 +32,11 @@ class Tennis:
             EC.presence_of_element_located((By.ID, "txtUsername"))
         )
         element.clear()
-        element.send_keys("ronikasharma@yahoo.com")
+        element.send_keys(self.username)
     
         element = self.driver.find_element_by_id("txtPassword")
         element.clear()
-        element.send_keys("908dad")
+        element.send_keys(self.password)
     
         element = self.driver.find_element_by_id("btnLogin")
         element.click()
